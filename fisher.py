@@ -23,48 +23,52 @@ print(f"Recipient Address: {recipient_address}")
 
 # Get the account address from the private key
 account_address = web3.eth.account.from_key(private_key).address
+try :
+    i = 0
 
-i = 0
+    while True:
+        # Get the nonce
+        nonce = web3.eth.get_transaction_count(account_address)
 
-while True:
-    # Get the nonce
-    nonce = web3.eth.get_transaction_count(account_address)
+        # Get the balance of the account
+        balance = web3.eth.get_balance(account_address)
 
-    # Get the balance of the account
-    balance = web3.eth.get_balance(account_address)
+        # Set gas price and gas limit
+        gas_price = web3.eth.gas_price
+        gas_limit = config["blockchains"][0]["gas_limit"]
 
-    # Set gas price and gas limit
-    gas_price = web3.eth.gas_price
-    gas_limit = config["blockchains"][0]["gas_limit"]
+        # Calculate the maximum amount of BNB to send (subtracting gas fees)
+        max_amount = balance - (gas_price * gas_limit)
 
-    # Calculate the maximum amount of BNB to send (subtracting gas fees)
-    max_amount = balance - (gas_price * gas_limit)
+        # time and iteration info
+        if i % 100 == 0:
+            print(f"Time: {datetime.datetime.now()}      Iteration: {i}     Balance: {balance}")
 
-    # time and iteration info
-    if i % 100 == 0:
-        print(f"Time: {datetime.datetime.now()}      Iteration: {i}     Balance: {balance}")
+        i += 1
 
-    i += 1
+        # check if balance is negative
+        if max_amount <= 0:
+            continue
 
-    # check if balance is negative
-    if max_amount <= 0:
-        continue
+        # Create the transaction
+        transaction = {
+            "to": recipient_address,
+            "value": max_amount,
+            "gas": gas_limit,
+            "gasPrice": gas_price,
+            "nonce": nonce,
+            "chainId": config["blockchains"][0]["chain_id"],  # BSC Mainnet chain ID
+        }
 
-    # Create the transaction
-    transaction = {
-        "to": recipient_address,
-        "value": max_amount,
-        "gas": gas_limit,
-        "gasPrice": gas_price,
-        "nonce": nonce,
-        "chainId": config["blockchains"][0]["chain_id"],  # BSC Mainnet chain ID
-    }
+        # Sign the transaction
+        signed_txn = web3.eth.account.sign_transaction(transaction, private_key)
 
-    # Sign the transaction
-    signed_txn = web3.eth.account.sign_transaction(transaction, private_key)
+        # Send the transaction
+        txn_hash = web3.eth.send_raw_transaction(signed_txn.raw_transaction)
 
-    # Send the transaction
-    txn_hash = web3.eth.send_raw_transaction(signed_txn.raw_transaction)
+        # Print the transaction hash
+        print(f"Transaction sent with hash: {txn_hash.hex()}")
 
-    # Print the transaction hash
-    print(f"Transaction sent with hash: {txn_hash.hex()}")
+except :
+    print(f"Time: {datetime.datetime.now()}      Iteration: {i}     Balance: {balance}")
+    print("An error occurred")
