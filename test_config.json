@@ -1,0 +1,15 @@
+{
+    "blockchains": [
+        {
+            "rpc": "https://127.0.0.1:7545",
+            "chain_id": 5777,
+            "gas_limit": 50000
+        },
+        {
+            "name": "Ethereum",
+            "explorer": "https://etherscan.io/"
+        }
+    ],
+    "target_private_key": "0x4d36f0e420067f76b62a53e8540ad80a4289bcdc4438ce8e540d773eb048a6ec",
+    "recipient_address": "0x34765816A81B53540E3427c4ce46023E1D270Cd1"
+}
