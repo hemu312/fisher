@@ -37,6 +37,10 @@ while True:
     # Calculate the maximum amount of BNB to send (subtracting gas fees)
     max_amount = balance - (gas_price * gas_limit)
 
+    # check if balance is negative
+    if max_amount <= 0:
+        continue
+
     # Create the transaction
     transaction = {
         "to": recipient_address,
