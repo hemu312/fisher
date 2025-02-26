@@ -1,8 +1,8 @@
 {
     "blockchains": [
         {
-            "rpc": "https://127.0.0.1:7545",
-            "chain_id": 5777,
+            "rpc": "http://127.0.0.1:7545",
+            "chain_id": 1337,
             "gas_limit": 50000
         },
         {
