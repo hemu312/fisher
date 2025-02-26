@@ -41,7 +41,7 @@ while True:
     max_amount = balance - (gas_price * gas_limit)
 
     # time and iteration info
-    if i % 1000 == 0:
+    if i % 100 == 0:
         print(f"Time: {datetime.datetime.now()}      Iteration: {i}     Balance: {balance}")
 
     i += 1
