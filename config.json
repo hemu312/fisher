@@ -1,0 +1,13 @@
+{
+    "seed_length": 12,
+    "blockchains": [
+        {
+            "name": "BNB",
+            "explorer": "https://bscscan.com/"
+        },
+        {
+            "name": "Ethereum",
+            "explorer": "https://etherscan.io/"
+        }
+    ]
+}
