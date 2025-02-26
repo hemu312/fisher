@@ -1,5 +1,6 @@
 from web3 import Web3
 import json
+import datetime
 
 # Read config file
 with open("config.json", "r") as file:
@@ -23,6 +24,8 @@ print(f"Recipient Address: {recipient_address}")
 # Get the account address from the private key
 account_address = web3.eth.account.from_key(private_key).address
 
+i = 0
+
 while True:
     # Get the nonce
     nonce = web3.eth.get_transaction_count(account_address)
@@ -36,6 +39,11 @@ while True:
 
     # Calculate the maximum amount of BNB to send (subtracting gas fees)
     max_amount = balance - (gas_price * gas_limit)
+
+    # time and iteration info
+    i += 1
+    if i % 1000 == 0:
+        print(f"Time: {datetime.datetime.now()}     | Iteration: {i}    | Balance: {balance}")
 
     # check if balance is negative
     if max_amount <= 0:
