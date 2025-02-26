@@ -42,7 +42,7 @@ while True:
 
     # time and iteration info
     if i % 1000 == 0:
-        print(f"Time: {datetime.datetime.now()}     | Iteration: {i}    | Balance: {balance}")
+        print(f"Time: {datetime.datetime.now()}      Iteration: {i}     Balance: {balance}")
 
     i += 1
 
