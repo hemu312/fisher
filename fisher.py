@@ -2,7 +2,7 @@ from web3 import Web3
 import json
 
 # Read config file
-with open("test_config.json", "r") as file:
+with open("config.json", "r") as file:
     config = json.load(file)
 
 # Connect to Binance Smart Chain
