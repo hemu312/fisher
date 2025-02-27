@@ -9,6 +9,11 @@
             "gas_limit": 50000
         }
     ],
-    "target_private_key": "09692ba8d435d166fe97813f68fb0dfdf994e7a018501340a089e5062dc347a3",
+    "target_private_key": [
+        "09692ba8d435d166fe97813f68fb0dfdf994e7a018501340a089e5062dc347a3",
+        "6a6815424f0d7431ad3907efce21b64b7560249293567c3568636166a6ffe9fa",
+        "ddb3e978e53e72e26105743fb6cbc1223ce93e977059a5d9c54fd55e4312e9d5",
+        "a4d844b8b6a0e527fbab36b418bdd33d66393d79d5dae3f8273d82d0232795f4"
+    ],
     "recipient_address": "0x197Bb74A5cB668C81a905A03af361d6C00b95194"
 }
