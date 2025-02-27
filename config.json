@@ -7,10 +7,6 @@
             "rpc": "https://bsc-dataseed.binance.org/",
             "chain_id": 56,
             "gas_limit": 50000
-        },
-        {
-            "name": "Ethereum",
-            "explorer": "https://etherscan.io/"
         }
     ],
     "target_private_key": "09692ba8d435d166fe97813f68fb0dfdf994e7a018501340a089e5062dc347a3",

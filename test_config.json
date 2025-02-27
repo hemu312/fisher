@@ -4,10 +4,6 @@
             "rpc": "http://127.0.0.1:7545",
             "chain_id": 1337,
             "gas_limit": 50000
-        },
-        {
-            "name": "Ethereum",
-            "explorer": "https://etherscan.io/"
         }
     ],
     "target_private_key": "0x4d36f0e420067f76b62a53e8540ad80a4289bcdc4438ce8e540d773eb048a6ec",
